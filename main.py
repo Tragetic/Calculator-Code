@@ -47,7 +47,7 @@ while True:
     print('You entered ', values[0])
     
 #set original value
-if orignial == 0:
+if original == 0:
   if event == '1':
     original = 1
   elif event == '2':
