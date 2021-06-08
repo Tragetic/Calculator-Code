@@ -1,8 +1,6 @@
 import PySimpleGUI as sg
 
 layout = [
-    [sg.Input(int)],
-    [sg.Input(int)],
     [
         sg.Button('CE', size=(5, 5)),
         sg.Button('Backspace', size=(8, 5)),
@@ -36,91 +34,46 @@ layout = [
 
 window = sg.Window('Py Calculator', layout)
 
-original = 0
-operation = '0'
-change = 0
-result = 0
-
-
 while True:
     event, values = window.read()
     if event == sg.WIN_CLOSED or event == 'Cancel':  # if user closes window or clicks cancel
         break
+    elif event == '1':
+      num = 1
+    elif event == '2':
+      num = 2
+    elif event == '3':
+      num = 3
+    elif event == '3':
+      num = 3
+    elif event == '4':
+      num = 4
+    elif event == '5':
+      num = 5
+    elif event == '6':
+      num = 6
+    elif event == '7':
+      num = 7
+    elif event == '8':
+      num = 8
+    elif event == '9':
+      num = 9
+    elif event == '*':
+      print(num * num)
     elif event == '+':
-      #values[0] = int
-      #values[1] = int
-      print(values[0] + values[1])
+      print(num + num)
     
-#set original value
-if original == 0:
-  if event == '1':
-    original = 1
-  elif event == '2':
-    original = 2
-  elif event == '3':
-    original = 3
-  elif event == '4':
-    original = 4
-  elif event == '5':
-    original = 5
-  elif event == '6':
-    original = 6
-  elif event == '7':
-    original = 7
-  elif event == '8':
-    original = 8
-  elif event == '9':
-    original = 9
-  print(original)
-
-#set operation
-if original != 0 and operation == '0':
-  if event == '-':
-    operation = '-'
-  elif event == '+':
-    operation = '+'
-  elif event == '*':
-    operation = '*'
-  elif event == '/':
-    operation = '/'
-  print(operation)
-
-#set change
-if original != 0 and operation != '0' and change == 0:
-  if event == '1':
-    change = 1
-  elif event == '2':
-    change = 2
-  elif event == '3':
-    change = 3
-  elif event == '4':
-    change = 4
-  elif event == '5':
-    change = 5
-  elif event == '6':
-    change = 6
-  elif event == '7':
-    change = 7
-  elif event == '8':
-    change = 8
-  elif event == '9':
-    change = 9
-  print(change)
-
-
 
 window.close()
 
 """
-We want 1 variable that is result, and 1 variable that is change.
-Then after change, it will check what operator, and then when they press enter it will output the result.
-This will only work for single digit numbers, but at least it will work.
+Alright, I know it might not seem very impressive, but it does do something. 
+The user can click a button to choose an input, then click another button to choose an operation.
 
-There will need to be multiple functions:
-1. a while loop to close if the x is pressed
-2. an if statement to set the orignial value
-3. an if statement to select the operator
-3. an if statement to select the change
-4. a function to print the result
-5. I will need to make the 1 textbox fit this all in
+Looking at the code now, especially the while true loop, it looks really simple, but it actually took me a long time to figure out how to get it to work, and it's because I just wasn't sure the exact notation. All the pysimplegui documentation was really basic, but then never really said how to go on to the next level, probably because I should've been looking through basic python docs instead, but I didn't know that.
+
+So what the program does is you can select a number, 1 through 9, and then you can either press the + button to add it by itself, or press the * button to multiply it by itself. Then when you click the X it closes the window. I didn't make the - or / buttons functional, because the result for all of them would be 0 so there wouldn't really be a point.
+
+
+I think to make it a real calculator, I would have to make it so that as long as you click integers, it stores them as a list. Then when you click an operator it starts a new list, then when you click enter it would have to convert both of those lists and then output the result.
 """
