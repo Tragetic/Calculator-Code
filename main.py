@@ -1,7 +1,8 @@
 import PySimpleGUI as sg
 
 layout = [
-    [sg.InputText()],
+    [sg.Input(int)],
+    [sg.Input(int)],
     [
         sg.Button('CE', size=(5, 5)),
         sg.Button('Backspace', size=(8, 5)),
@@ -40,11 +41,15 @@ operation = '0'
 change = 0
 result = 0
 
+
 while True:
     event, values = window.read()
     if event == sg.WIN_CLOSED or event == 'Cancel':  # if user closes window or clicks cancel
         break
-    print('You entered ', values[0])
+    elif event == '+':
+      #values[0] = int
+      #values[1] = int
+      print(values[0] + values[1])
     
 #set original value
 if original == 0:
